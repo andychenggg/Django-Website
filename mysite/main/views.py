@@ -58,3 +58,11 @@ def home(request):
 def view(request):
 	l = ToDoList.objects.all()
 	return render(request, "main/view.html", {"lists":l})
+
+def delete_list(request, id):
+    if request.method == "POST":
+        ls = get_object_or_404(ToDoList, id=id)
+        ls.delete()
+        return HttpResponseRedirect("/view")  # 重定向到清单列表页面
+    return HttpResponseRedirect("/view")  # 如果不是POST请求，也重定向到列表页面
+
