@@ -31,6 +31,11 @@ def index(request, id):
 			else:
 				print("invalid")
 
+		elif "delete" in request.POST:
+			item_id = int(request.POST["delete"])
+			item = ls.item_set.get(id=item_id)
+			item.delete()
+
 	return render(request, "main/index.html", {"ls": ls})
 
 
