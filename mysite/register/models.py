@@ -4,4 +4,4 @@ from main.models import ToDoList
 
 # Create your models here.
 class CustomUser(AbstractUser):
-	toDoLists = models.ForeignKey(ToDoList, on_delete=models.CASCADE)
+	toDoLists = models.ForeignKey(ToDoList, on_delete=models.CASCADE, null=True, blank=True)

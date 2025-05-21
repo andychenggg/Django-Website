@@ -10,7 +10,10 @@
 			{% csrf_token %}
 			<legend class="border-bottom mb-3">Create an Account</legend>
 			{{form|crispy}}
+            <div class="d-flex align-items-center justify-content-between mt-3">
 			<button name="create", type="submit", class="btn btn-success">Register</button>
+                <span>Already have an account? <a href="{% url 'login' %}">Login</a></span>
+            </div>
 		</form>
 	</div>
 {% endblock %}
